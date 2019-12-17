@@ -25,13 +25,12 @@ const 인자갯수 = () => {
 
 // 반지름 
 const radius = radius => {
-    숫자에러(arguments);
+    숫자에러(radius);
     return Math.PI * (radius * 2);
 };
 
 // 정사각형
 const square = w => {
-    숫자에러(arguments);
     return w * w;
 };
 
