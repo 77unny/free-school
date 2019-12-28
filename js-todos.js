@@ -49,6 +49,9 @@ const showNum = num => {
             return v.id == num;
         })
         .map(v => v.name)[0];
+
+    if (aa === undefined) return console.log('해당 컨텐츠가 없습니다.')
+    
     console.log(aa);
 };
 
@@ -70,7 +73,8 @@ const show = obj => {
 
 show('all');
 show('todo');
-show(2);
+show(5);
+show(3);
 show('doing');
 
 /*
