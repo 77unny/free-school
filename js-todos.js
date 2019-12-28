@@ -3,32 +3,32 @@ const todos = [
         name: '자바스크립트 공부하기',
         tags: ['programming', 'javascript'],
         status: 'todo',
-        id: 12123123
+        id: 2
     },
     {
         name: '그림 그리기',
         tags: ['picture', 'favorite'],
         status: 'doing',
-        id: 312323
+        id: 3
     },
     {
         name: '복습하기',
         tags: ['picture', 'favorite'],
         status: 'doing',
-        id: 14451
+        id: 4
     },
     {
         name: '밥먹기',
         tags: ['picture', 'favorite'],
         status: 'done',
-        id: 14451
+        id: 1
     }
 ];
 const showAll = () => {
-    let all = []
-    todos.forEach((v)=>{
+    let all = [];
+    todos.forEach(v => {
         all.push(v.status);
-    })
+    });
     let todo = all.filter(v => v === 'todo');
     let doing = all.filter(v => v === 'doing');
     let done = all.filter(v => v === 'done');
@@ -43,6 +43,15 @@ const showTodo = () => {
     return console.log(`todo리스트 : 총 ${todo.length}건 : ${todo}`);
 };
 
+const showNum = num => {
+    let aa = todos
+        .filter(v => {
+            return v.id == num;
+        })
+        .map(v => v.name)[0];
+    console.log(aa);
+};
+
 const show = obj => {
     switch (obj) {
         case 'all':
@@ -51,6 +60,9 @@ const show = obj => {
         case 'todo':
             showTodo();
             break;
+        case Number(obj):
+            showNum(obj);
+            break;
         default:
             console.log('설정 오류');
     }
@@ -58,6 +70,8 @@ const show = obj => {
 
 show('all');
 show('todo');
+show(2);
+show('doing');
 
 /*
 현재상태 :  todo: 1개, doing:2개, done:4개
